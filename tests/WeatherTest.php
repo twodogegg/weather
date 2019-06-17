@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the twodogeggs/weather.
+ *
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Twodogegg\Weather\Tests;
 
 use GuzzleHttp\ClientInterface;
@@ -13,7 +21,6 @@ use Twodogegg\Weather\Weather;
 
 class WeatherTest extends TestCase
 {
-
     public function testGetWeatherWithInvalidType()
     {
         $w = new Weather('mock-key');

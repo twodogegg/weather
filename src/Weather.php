@@ -1,8 +1,14 @@
 <?php
 
+/*
+ * This file is part of the twodogeggs/weather.
+ *
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Twodogegg\Weather;
-
 
 use GuzzleHttp\Client;
 use Twodogegg\Weather\Exceptions\HttpException;
@@ -36,7 +42,9 @@ class Weather
     /**
      * @param string $city
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      */
@@ -48,7 +56,9 @@ class Weather
     /**
      * @param string $city
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      */
@@ -57,20 +67,20 @@ class Weather
         return $this->getWeather($city, 'all', $format);
     }
 
-
     /**
      * @param $city
      * @param string $type
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      */
     public function getWeather($city,string $type = 'base', string $format = 'json')
     {$url = 'https://restapi.amap.com/v3/weather/weatherInfo';
-
         if (!in_array(strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!in_array(strtolower($type), ['base', 'all'])) {
@@ -81,9 +91,8 @@ class Weather
             'key' => $this->key,
             'city' => $city,
             'output' => $format,
-            'extensions' =>  $type,
+            'extensions' => $type,
         ]);
-
 
         try {
             $response = $this->getHttpClient()->get($url, [
