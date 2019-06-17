@@ -3,6 +3,8 @@
 基于 [高德开放平台](https://lbs.amap.com/dev/index) 的PHP天气信息组件
 
 [![Build Status](https://travis-ci.org/twodogegg/weather.svg?branch=master)](https://travis-ci.org/twodogegg/weather)
+![StyleCI build status](https://github.styleci.io/repos/192219944/shield) 
+
 
 ## 安装
 ***
