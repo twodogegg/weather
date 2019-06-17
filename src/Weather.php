@@ -33,6 +33,30 @@ class Weather
         $this->guzzleOptions = $guzzleOptions;
     }
 
+    /**
+     * @param string $city
+     * @param string $format
+     * @return mixed|string
+     * @throws HttpException
+     * @throws InvalidArgumentException
+     */
+    public function getLiveWeather(string $city, string $format = 'json')
+    {
+        return $this->getWeather($city, 'base', $format);
+    }
+
+    /**
+     * @param string $city
+     * @param string $format
+     * @return mixed|string
+     * @throws HttpException
+     * @throws InvalidArgumentException
+     */
+    public function getForecastsWeather(string $city, string $format = 'json')
+    {
+        return $this->getWeather($city, 'all', $format);
+    }
+
 
     /**
      * @param $city
